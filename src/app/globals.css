@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 0, 0;
+  --background-end-rgb: 0, 0, 0;
+  --pokeball-red: 220, 53, 69;
+  --pokeball-white: 255, 255, 255;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+    to bottom,
+    rgb(var(--background-start-rgb)),
+    rgb(var(--background-end-rgb))
+  );
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(var(--pokeball-red), 0.15), transparent 50%),
+    radial-gradient(circle at 0% 100%, rgba(var(--pokeball-red), 0.1), transparent 50%);
+  min-height: 100vh;
+}
+
+.card {
+  @apply bg-slate-900/80 backdrop-blur-sm rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-800;
+}
+
+.button {
+  @apply px-4 py-2 rounded-lg transition-all duration-300 font-medium;
+}
+
+.button-primary {
+  @apply button bg-[#dc3545] text-white hover:bg-[#dc3545]/90 active:bg-[#dc3545]/80 shadow-lg shadow-[#dc3545]/20;
+}
+
+.button-success {
+  @apply button bg-[#28a745] text-white hover:bg-[#28a745]/90 active:bg-[#28a745]/80 shadow-lg shadow-[#28a745]/20;
+}
+
+.glass-effect {
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.hover-scale {
+  @apply transition-transform duration-300 hover:scale-105;
+}
+
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-[#dc3545] to-[#ff4d5b];
+}
+
+.pokeball-badge {
+  @apply bg-[#dc3545] text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center;
+}
+
+.type-badge {
+  @apply px-2 py-1 text-xs font-medium rounded-full bg-slate-800 text-white border border-slate-700;
+}
+
+.pokemon-stats {
+  @apply text-sm text-slate-400;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  90% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
+
+.animate-fade-in-out {
+  animation: fadeInOut 3s ease-in-out forwards;
+} 
